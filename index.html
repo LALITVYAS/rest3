@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen Project Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        /* Left Section for Project List */
+        .projects {
+            flex: 1;
+            background-color: #333;
+            color: #fff;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        .projects ul {
+            list-style: none;
+        }
+        .projects ul li {
+            margin: 1rem 0;
+        }
+        .projects ul li a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem;
+            background: #444;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .projects ul li a:hover {
+            background: #555;
+            color: #fff;
+        }
+
+        /* Right Section for Project Details */
+        .details {
+            flex: 2;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+        .details h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+        .details p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Section -->
+    <div class="projects">
+        <h2 style="color: #fff;">Projects</h2>
+        <ul>
+            <li>
+                <a href="#" onclick="showDetails('Project 1', 'Details about Project 1...', <a href https://lalitvyas.github.io/classwork4/>)">Project 1</a>
+            </li>
+            <li>
+                <a href="#" onclick="showDetails('Project 2', 'Details about Project 2...', 'https://lalitvyas.github.io/htmlclasswork3/')">Project 2</a>
+            </li>
+            <li>
+                <a href="#" onclick="showDetails('Project 3', 'Details about Project 3...', 'https://lalitvyas.github.io/cat/')">Project 3</a>
+            </li>
+            <li>
+                <a href="#" onclick="showDetails('Project 4', 'Details about Project 4...', 'https://lalitvyas.github.io/resumeday3/')">Project 4</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Right Section -->
+    <div class="details">
+        <div>
+            <h2>Welcome</h2>
+            <p>Select a project from the list on the left to view its details here.</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to update project details
+        function showDetails(title, description, link) {
+            const details = document.querySelector('.details');
+
+            // Update the right section with project details and add a link to open it
+            details.innerHTML = `
+                <div>
+                    <h2>${title}</h2>
+                    <p>${description}</p>
+                    <a href="${link}" target="_blank">Click here to open the project</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
